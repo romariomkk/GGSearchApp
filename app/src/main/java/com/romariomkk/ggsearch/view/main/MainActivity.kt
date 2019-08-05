@@ -28,7 +28,7 @@ class MainActivity : AbsActivity<ActivityMainBinding, MainViewModel>() {
             Keys.openInBrowser(this@MainActivity, item.link)
         }
     }
-    private var mResultsAdapter = SearchResultsAdapter(mItemClickListener)
+    private val mResultsAdapter by lazy { SearchResultsAdapter(mItemClickListener) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,13 +45,6 @@ class MainActivity : AbsActivity<ActivityMainBinding, MainViewModel>() {
             addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = mResultsAdapter
-        }
-
-        etSearch.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                btnSearch.performClick()
-                true
-            } else false
         }
     }
 

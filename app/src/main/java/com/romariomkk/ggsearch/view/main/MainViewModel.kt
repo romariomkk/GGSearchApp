@@ -20,6 +20,7 @@ class MainViewModel @Inject constructor(
         add(searchRepo.requestLastSearchData()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ request ->
+                queryObservable.set(request.searchQuery)
                 searchResultsSource.value = Resource.success(request.searchResults)
             }, {
                 searchResultsSource.value = Resource.error(it)
