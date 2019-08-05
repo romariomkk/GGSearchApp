@@ -8,6 +8,7 @@ import android.widget.Button
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
+import com.romariomkk.ggsearch.core.domain.pojo.SearchResult
 import com.romariomkk.ggsearch.util.Resource
 
 
@@ -30,7 +31,7 @@ object BindingAdapters {
 
     @JvmStatic
     @BindingAdapter("android:visibility")
-    fun bindButtonVisibility(button: Button, searchLiveData: LiveData<Resource<*>>) {
+    fun bindButtonVisibility(button: Button, searchLiveData: LiveData<Resource<List<SearchResult>>>) {
         button.visibility = when (searchLiveData.value?.status) {
             Resource.Status.LOADING -> View.VISIBLE
             Resource.Status.SUCCESS, Resource.Status.ERROR, Resource.Status.ABORT -> View.GONE

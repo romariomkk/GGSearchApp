@@ -63,7 +63,8 @@
             <Button
                 android:id="@+id/btnStopSearch"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:minHeight="0dp"
                 android:background="@android:color/holo_red_light"
                 android:text="@string/stop"
                 android:textColor="@android:color/white"

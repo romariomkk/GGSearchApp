@@ -49,6 +49,7 @@ class MainViewModel @Inject constructor(
 
     fun stopSearch() {
         searchDisposable?.let { remove(it) }
+        searchDisposable = null
     }
 
 

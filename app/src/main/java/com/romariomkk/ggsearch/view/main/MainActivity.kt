@@ -40,6 +40,7 @@ class MainActivity : AbsActivity<ActivityMainBinding, MainViewModel>() {
             .into(ivGLogo)
 
         binding.vm = viewModel
+        binding.lifecycleOwner = this
 
         with(rvResults) {
             addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
@@ -61,9 +62,10 @@ class MainActivity : AbsActivity<ActivityMainBinding, MainViewModel>() {
                 mResultsAdapter.updateItems(it.data!!)
             }
             Resource.Status.ERROR -> {
-                if (it.exception?.message == Keys.EMPTY_PREVIOUS_REQUEST) {
-                    Toast.makeText(this, "No previous request done", Toast.LENGTH_SHORT).show()
-                }
+                val message =
+                    if (it.exception?.message == Keys.EMPTY_PREVIOUS_REQUEST) "No previous request done"
+                    else it.exception?.message
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
         }
     }
