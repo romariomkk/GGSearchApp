@@ -12,6 +12,10 @@ abstract class AbsViewModel: ViewModel() {
         disposables.add(disposable)
     }
 
+    fun remove(disposable: Disposable) {
+        disposables.remove(disposable)
+    }
+
     override fun onCleared() {
         dispose()
         super.onCleared()

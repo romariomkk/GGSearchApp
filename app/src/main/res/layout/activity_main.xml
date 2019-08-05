@@ -43,6 +43,7 @@
                 android:layout_marginBottom="@dimen/dp_8"
                 android:layout_marginStart="@dimen/dp_8"
                 android:contentDescription="@null"
+                android:layout_gravity="center_vertical"
                 tools:src="@mipmap/ic_launcher"/>
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -57,7 +58,17 @@
                 android:maxLines="1"
                 android:layout_margin="@dimen/dp_8"
                 android:text="@={vm.queryObservable}"
-                app:onDoneAction="@{() -> vm.searchText()}" />
+                app:onDoneAction="@{() -> vm.searchText()}"/>
+
+            <Button
+                android:id="@+id/btnStopSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
+                android:text="@string/stop"
+                android:textColor="@android:color/white"
+                android:visibility="@{vm.searchResultsSource}"
+                android:onClick="@{() -> vm.stopSearch()}"/>
 
         </LinearLayout>
 

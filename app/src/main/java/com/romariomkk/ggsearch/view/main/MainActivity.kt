@@ -63,8 +63,6 @@ class MainActivity : AbsActivity<ActivityMainBinding, MainViewModel>() {
             Resource.Status.ERROR -> {
                 if (it.exception?.message == Keys.EMPTY_PREVIOUS_REQUEST) {
                     Toast.makeText(this, "No previous request done", Toast.LENGTH_SHORT).show()
-                } else {
-                    it.exception?.printStackTrace()
                 }
             }
         }

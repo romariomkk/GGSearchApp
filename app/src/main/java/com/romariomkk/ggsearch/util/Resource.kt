@@ -2,7 +2,7 @@ package com.romariomkk.ggsearch.util
 
 class Resource<out T> private constructor(val status: Status, val data: T?, val exception: Throwable?) {
 
-    enum class Status { LOADING, SUCCESS, ERROR }
+    enum class Status { LOADING, SUCCESS, ERROR, ABORT }
 
     companion object {
 
@@ -16,6 +16,10 @@ class Resource<out T> private constructor(val status: Status, val data: T?, val 
 
         fun <T> error(exception: Throwable? = null, data: T? = null): Resource<T> {
             return Resource(Status.ERROR, data, exception)
+        }
+
+        fun <T> abort(exception: Throwable? = null, data: T? = null): Resource<T> {
+            return Resource(Status.ABORT, data, exception)
         }
 
     }

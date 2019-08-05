@@ -24,12 +24,6 @@ class SearchRepoImpl @Inject constructor(
     private val searchStorage: SearchStorage
 ): SearchRepo {
 
-    companion object {
-        const val MAX_RESULTS_GOOGLE_RESTRICTED = 10
-        val TAG: String = SearchRepoImpl::class.java.simpleName
-    }
-
-
     override fun requestLastSearchData(): Single<SearchRequest> {
         return Single.zip(
             searchStorage.getLastQuery(),
@@ -84,5 +78,11 @@ class SearchRepoImpl @Inject constructor(
 
     private val mThreadFactory2: ThreadFactory = ThreadFactory {
         Thread(it).apply { name = "LeizerGGSearch96" }
+    }
+
+
+    companion object {
+        const val MAX_RESULTS_GOOGLE_RESTRICTED = 10
+        val TAG: String = SearchRepoImpl::class.java.simpleName
     }
 }

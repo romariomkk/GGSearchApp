@@ -4,8 +4,11 @@ import android.content.Context.INPUT_METHOD_SERVICE
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.LiveData
+import com.romariomkk.ggsearch.util.Resource
 
 
 object BindingAdapters {
@@ -22,6 +25,16 @@ object BindingAdapters {
                 }
                 true
             } else false
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("android:visibility")
+    fun bindButtonVisibility(button: Button, searchLiveData: LiveData<Resource<*>>) {
+        button.visibility = when (searchLiveData.value?.status) {
+            Resource.Status.LOADING -> View.VISIBLE
+            Resource.Status.SUCCESS, Resource.Status.ERROR, Resource.Status.ABORT -> View.GONE
+            else -> View.GONE
         }
     }
 
