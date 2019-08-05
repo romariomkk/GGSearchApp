@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="size_image">24dp</dimen>
+    <dimen name="margin_tablet_horizontal">64dp</dimen>
+    <dimen name="base_margin">16dp</dimen>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!--GRADIENT COLORS-->
+    <color name="light_pink">#D08CA7</color>
+    <color name="dark_pink">#A0479B</color>
+    <color name="dark_blue">#1E4C96</color>
+</resources>
